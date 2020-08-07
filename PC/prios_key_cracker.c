@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <time.h>
+#include <inttypes.h>
 
 // Use the PRIOS functions from the ST code.
 #include <PRIOS.h>
@@ -83,7 +84,7 @@ int main(void) {
     for (uint64_t i=0; i<0xffffffffffffffff; i++) {
         time_t curtime = time(NULL);
         if (curtime > prevtime + 1) {
-            printf("%.16llx keys tried\n", i);
+            printf("%"PRIu64" keys tried\n", i);
             prevtime = curtime;
         }
 
